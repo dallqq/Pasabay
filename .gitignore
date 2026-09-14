@@ -49,8 +49,8 @@ SUPABASE_GUIDE.md
 PROJECT_ORGANIZATION.md
 SUPABASE_AUTH_IMPLEMENTATION.md
 
-# Supabase Configuration (contains API keys)
-lib/utils/supabase_config.dart
+# Supabase Configuration
+# (To customize locally without committing secrets, use --dart-define or edit supabase_config.dart)
 
 # Firebase files (prevent accidental additions)
 firebase.json
