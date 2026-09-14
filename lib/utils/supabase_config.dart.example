@@ -1,0 +1,16 @@
+/// Example template for Supabase configuration.
+/// Copy this file to `lib/utils/supabase_config.dart` and fill in your Supabase credentials.
+
+class SupabaseConfig {
+  /// Supabase Project URL (e.g. 'https://your-project.supabase.co')
+  static const String supabaseUrl = String.fromEnvironment(
+    'SUPABASE_URL',
+    defaultValue: 'https://YOUR_PROJECT_ID.supabase.co',
+  );
+
+  /// Supabase Anonymous Public API Key (anon key)
+  static const String supabaseAnonKey = String.fromEnvironment(
+    'SUPABASE_ANON_KEY',
+    defaultValue: 'YOUR_SUPABASE_ANON_KEY',
+  );
+}

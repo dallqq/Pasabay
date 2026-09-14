@@ -1,27 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '../utils/constants.dart';
-import '../utils/supabase_config.dart';
-import '../widgets/responsive_wrapper.dart';
-import '../screens/auth_wrapper.dart';
-import '../screens/splash_screen.dart';
-import '../screens/traveler/identity_verification_screen.dart';
-import '../screens/traveler/traveler_main_page.dart';
-import '../screens/requester/requester_main_page.dart';
+import 'utils/constants.dart';
+import 'utils/supabase_config.dart';
+import 'widgets/responsive_wrapper.dart';
+import 'screens/auth_wrapper.dart';
+import 'screens/splash_screen.dart';
+import 'screens/traveler/identity_verification_screen.dart';
+import 'screens/traveler/traveler_main_page.dart';
+import 'screens/requester/requester_main_page.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp();
+  // Initialize Firebase (guarded for Flutter Web)
+  if (!kIsWeb) {
+    try {
+      await Firebase.initializeApp();
+      debugPrint("✅ Firebase initialized successfully!");
+    } catch (e) {
+      debugPrint("⚠️ Firebase initialization skipped or failed: $e");
+    }
+  }
 
   // Initialize Supabase
   await Supabase.initialize(
     url: SupabaseConfig.supabaseUrl,
     anonKey: SupabaseConfig.supabaseAnonKey,
   );
-  print("✅ Supabase successfully initialized for Main User App!");
+  debugPrint("✅ Supabase successfully initialized for Main User App!");
 
   runApp(const MainUserApp());
 }
