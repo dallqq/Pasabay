@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'utils/constants.dart';
 import 'utils/supabase_config.dart';
 import 'widgets/responsive_wrapper.dart';
+import 'widgets/app_mode_switcher.dart';
 import 'screens/auth_wrapper.dart';
 import 'screens/splash_screen.dart';
 import 'screens/traveler/identity_verification_screen.dart';
@@ -70,7 +71,7 @@ class MainUserApp extends StatelessWidget {
         ),
       ),
       builder: (context, child) {
-        return ResponsiveWrapper(
+        return AppModeSwitcher(
           child: child ?? const SizedBox.shrink(),
         );
       },

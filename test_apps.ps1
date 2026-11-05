@@ -17,7 +17,7 @@ if ($flutterVersion) {
 
 Write-Host ""
 Write-Host "Choose what you want to run:" -ForegroundColor Cyan
-Write-Host "1. Main User App (Travelers & Requesters) - Port 5000" -ForegroundColor White
+Write-Host "1. Unified App (Main User App + Verifier Switcher) - Port 5000" -ForegroundColor White
 Write-Host "2. Verifier Dashboard - Port 8080" -ForegroundColor White
 Write-Host "3. Both Apps (Simultaneous Testing)" -ForegroundColor White
 Write-Host "4. Build Production APK (Main User App)" -ForegroundColor White
